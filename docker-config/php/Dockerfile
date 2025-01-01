@@ -8,6 +8,12 @@ RUN chown -R www-data:www-data /var/www
 # install composer
 RUN cd /usr/bin && curl -s http://getcomposer.org/installer | php && ln -s /usr/bin/composer.phar /usr/bin/composer
 
+# Update GPG keys
+RUN apt-get update && apt-get install -y gnupg2 \
+    && apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 648ACFD622F3D138 \
+    && apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 0E98404D386FA1D9 \
+    && apt-key adv --keyserver keyserver.ubuntu.com --recv-keys DCC9EFBF77E11517
+
 # install packages
 RUN apt-get update \
   && apt-get install -y \
