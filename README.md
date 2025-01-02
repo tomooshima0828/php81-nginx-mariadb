@@ -1,3 +1,6 @@
+【最新保存版】Laravel入門基礎マスター講座【初心者もゼロから学習】
+https://www.youtube.com/watch?v=SXjrlVs5Tnk
+
 # 使用技術
 ![Laravel](https://img.shields.io/badge/Laravel-10-brightgreen.svg)
 ![PHP](https://img.shields.io/badge/PHP-8-blue.svg)
@@ -62,3 +65,6 @@
    ```
    docker compose up -d
    ```
+
+
+http://localhost:81/posts

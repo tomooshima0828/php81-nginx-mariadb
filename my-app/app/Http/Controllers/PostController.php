@@ -12,7 +12,12 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+      $posts = [
+        (object)['title' => 'first post', 'body' => 'first post body'],
+        (object)['title' => 'second post', 'body' => 'second post body'],
+        (object)['title' => 'third post', 'body' => 'third post body']
+      ];
+      return view('posts.index', ['posts' => $posts]);
     }
 
     /**
@@ -28,7 +33,17 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+      $request->validate([
+        'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        'caption' => 'nullable'
+      ]);
+      $path = $request->file('image')->store('public');
+      Post::createPost($request->all());
+      return response()->json([
+        'success' => true,
+        'path' => $path,
+        'message' => 'Image uploaded successfully'
+      ]); 
     }
 
     /**
