@@ -5,10 +5,10 @@
   <title>@yield('title')</title>
 </head>
 <body>
-  <header>インスタグラム風アプリ</header>
+  <header style="background-color: red">インスタグラム風アプリ</header>
   <div class="content">
     @yield('content')
   </div>
-  <footer>フッター</footer>
+  <footer style="background-color: red">フッター</footer>
 </body>
 </html>

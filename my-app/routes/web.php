@@ -22,3 +22,11 @@ Route::get('/posts', [PostController::class, 'index']);
 Route::get('/posts/{post}', [PostController::class, 'show']);
 Route::get('/create', [PostController::class, 'create']);
 Route::post('/posts', [PostController::class, 'store']);
+
+Route::get('/posts2', [PostController::class, 'index2']);
+
+Route::get('/posts3', [PostController::class, 'indexNormalSql']);
+
+Route::post('/posts/create/normalsql', [PostController::class, 'createPostWithNormalSql']);
+
+Route::post('/posts/update/normalsql', [PostController::class, 'updatePostWithNormalSql']);

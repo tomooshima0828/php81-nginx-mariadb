@@ -20,12 +20,56 @@ class PostController extends Controller
       return view('posts.index', ['posts' => $posts]);
     }
 
+    public function index2()
+    {
+      $posts = [
+        (object)['title' => 'first post', 'body' => 'first post body'],
+        (object)['title' => 'second post', 'body' => 'second post body'],
+        (object)['title' => 'third post', 'body' => 'third post body']
+      ];
+      return view('posts.index2', ['posts' => $posts]);
+    }
+
+    public function indexNormalSql()
+    {
+      $post = new Post();
+      $posts = $post->getPostsWithNormalSql();
+      return $posts;
+    }
+
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
         //
+    }
+
+    public function createPostWithNormalSql()
+    {
+      $dummyData = (object)[
+        'user_id' => 1,
+        'title' => 'test title aaa',
+        'body' => 'test body aaa',
+        'created_at' => now(),
+        'updated_at' => now()
+      ];
+      
+      $post = new Post();
+      $post->createPostWithNormalSql($dummyData);
+    }
+
+    public function updatePostWithNormalSql()
+    {
+      $dummyData = (object)[
+        'title' => 'test title ccc',
+        'body' => 'test body ccc',
+        'updated_at' => now(),
+        'id' => 15
+      ];
+      
+      $post = new Post();
+      $post->updatePostWithNormalSql($dummyData);
     }
 
     /**
