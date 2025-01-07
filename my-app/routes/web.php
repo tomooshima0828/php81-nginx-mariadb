@@ -30,3 +30,27 @@ Route::get('/posts3', [PostController::class, 'indexNormalSql']);
 Route::post('/posts/create/normalsql', [PostController::class, 'createPostWithNormalSql']);
 
 Route::post('/posts/update/normalsql', [PostController::class, 'updatePostWithNormalSql']);
+
+Route::post('/posts/delete/normalsql', [PostController::class, 'deletePostWithNormalSql']);
+
+Route::post('/posts/create/bulk', [PostController::class, 'createBulkPostWithNormalSql']);
+
+Route::post('/posts/create/querybuilder', [PostController::class, 'createPostWithQueryBuilder']);
+
+Route::get('/posts/show/querybuilder', [PostController::class, 'getPostWithQueryBuilder']);
+
+Route::post('/posts/update/querybuilder', [PostController::class, 'updatePostWithQueryBuilder']);
+
+Route::post('/posts/delete/querybuilder', [PostController::class, 'deletePostWithQueryBuilder']);
+
+Route::get('/posts/show/querybuilder/filter', [PostController::class, 'getPostWithQueryBuilderByFilter']);
+
+Route::get('/posts/show/querybuilder/count', [PostController::class, 'getCountPosts']);
+
+Route::get('/posts/show/querybuilder/join', [PostController::class, 'getPostAndUserWithQueryBuilder']);
+
+Route::get('/posts/show/querybuilder/subquery', [PostController::class, 'getPostWithQueryBuilderBySubQuery']);
+
+Route::get('/posts/show/eloquent', [PostController::class, 'getPostWithEloquent']);
+
+Route::get('/posts/show/eloquent/{id}', [PostController::class, 'getPostWithEloquentById']);

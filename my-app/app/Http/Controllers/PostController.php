@@ -59,6 +59,12 @@ class PostController extends Controller
       $post->createPostWithNormalSql($dummyData);
     }
 
+    public function createBulkPostWithNormalSql()
+    {
+      $post = new Post();
+      $post->createBulkPostWithNormalSql();
+    }
+
     public function updatePostWithNormalSql()
     {
       $dummyData = (object)[
@@ -120,5 +126,99 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         //
+    }
+
+    public function deletePostWithNormalSql()
+    {
+      $dummyData = (object)[
+        'id' => 15
+      ];
+      $post = new Post();
+      $post->deletePostWithNormalSql($dummyData->id);
+    }
+
+    public function createPostWithQueryBuilder()
+    {
+      $dummyData = (object)[
+        'user_id' => 1,
+        'title' => 'test title aaa',
+        'body' => 'test body aaa',
+        'created_at' => now(),
+        'updated_at' => now()
+      ];
+      
+      $post = new Post();
+      $post->createPostWithQueryBuilder($dummyData);
+    }
+
+    public function getPostWithQueryBuilder()
+    {
+      $post = new Post();
+      $posts = $post->getPostWithQueryBuilder();
+      return $posts;
+    }
+
+    public function updatePostWithQueryBuilder()
+    {
+      $dummyData = (object)[
+        'id' => 21,
+        'title' => 'test title ccc',
+        'body' => 'test body ccc',
+        'updated_at' => now()
+      ];
+      
+      $post = new Post();
+      $post->updatePostWithQueryBuilder($dummyData);
+    }
+
+    public function deletePostWithQueryBuilder()
+    {
+      $dummyData = (object)[
+        'id' => 21
+      ];
+      $post = new Post();
+      $post->deletePostWithQueryBuilder($dummyData->id);
+    }
+
+    public function getPostWithQueryBuilderByFilter()
+    {
+      $post = new Post();
+      $posts = $post->getPostByFilter();
+      return $posts;
+    }
+
+    public function getCountPosts()
+    {
+      $post = new Post();
+      $count = $post->countPosts();
+      return $count;
+    }
+
+    public function getPostAndUserWithQueryBuilder()
+    {
+      $post = new Post();
+      $posts = $post->getPostAndUserWithQueryBuilder();
+      return $posts;
+    }
+
+    public function getPostWithQueryBuilderBySubQuery()
+    {
+      $post = new Post();
+      $posts = $post->getPostWithQueryBuilderBySubQuery();
+      return $posts;
+    }
+
+    public function getPostWithEloquent()
+    {
+      $post = new Post();
+      $posts = $post->getPostWithEloquent();
+      return $posts;
+    }
+
+    public function getPostWithEloquentById($id)
+    {
+      $post = new Post();
+      $post = $post->getPostWithEloquentById($id);
+      return $post;
     }
 }
