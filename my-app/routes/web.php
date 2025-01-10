@@ -54,3 +54,9 @@ Route::get('/posts/show/querybuilder/subquery', [PostController::class, 'getPost
 Route::get('/posts/show/eloquent', [PostController::class, 'getPostWithEloquent']);
 
 Route::get('/posts/show/eloquent/{id}', [PostController::class, 'getPostWithEloquentById']);
+
+Route::post('/posts/create/eloquent', [PostController::class, 'createPostWithEloquent']);
+
+Route::post('/posts/update/eloquent', [PostController::class, 'updatePostWithEloquent']);
+
+Route::post('/posts/delete/eloquent', [PostController::class, 'deletePostWithEloquent']);

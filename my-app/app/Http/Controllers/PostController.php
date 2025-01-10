@@ -221,4 +221,37 @@ class PostController extends Controller
       $post = $post->getPostWithEloquentById($id);
       return $post;
     }
+
+    public function createPostWithEloquent()
+    {
+      $dummyData = (object)[
+        'user_id' => 1,
+        'title' => 'test title ccc eloquent',
+        'body' => 'test body ccc eloquent',
+        'updated_at' => now()
+      ];
+      $post = new Post();
+      $post->createPostWithEloquent($dummyData);
+    }
+
+    public function updatePostWithEloquent()
+    {
+      $dummyData = (object)[
+        'id' => 26,
+        'title' => 'test title dddd eloquent',
+        'body' => 'test body dddd eloquent',
+        'updated_at' => now()
+      ];
+      $post = new Post();
+      $post->updatePostWithEloquent($dummyData);
+    }
+
+    public function deletePostWithEloquent()
+    {
+      $dummyData = (object)[
+        'id' => 26
+      ];
+      $post = new Post();
+      $post->deletePostWithEloquent($dummyData->id);
+    }
 }
