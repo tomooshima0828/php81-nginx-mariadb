@@ -15,7 +15,12 @@ use App\Http\Controllers\PostController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+  return view('welcome');
+});
+
+Route::get('/user/{id}', function ($id) {
+  $user = new \App\Models\User();
+  return $user->getUserById($id);
 });
 
 Route::get('/posts', [PostController::class, 'index']);
@@ -53,10 +58,12 @@ Route::get('/posts/show/querybuilder/subquery', [PostController::class, 'getPost
 
 Route::get('/posts/show/eloquent', [PostController::class, 'getPostWithEloquent']);
 
+Route::get('/posts/show/trash/eloquent', [PostController::class, 'getTrashPostWithEloquent']);
+
 Route::get('/posts/show/eloquent/{id}', [PostController::class, 'getPostWithEloquentById']);
 
 Route::post('/posts/create/eloquent', [PostController::class, 'createPostWithEloquent']);
 
 Route::post('/posts/update/eloquent', [PostController::class, 'updatePostWithEloquent']);
 
-Route::post('/posts/delete/eloquent', [PostController::class, 'deletePostWithEloquent']);
+Route::post('/posts/delete/eloquent/{id}', [PostController::class, 'deletePostWithEloquent']);

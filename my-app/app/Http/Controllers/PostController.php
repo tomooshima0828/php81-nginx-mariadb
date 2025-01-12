@@ -246,12 +246,16 @@ class PostController extends Controller
       $post->updatePostWithEloquent($dummyData);
     }
 
-    public function deletePostWithEloquent()
+    public function deletePostWithEloquent($id)
     {
-      $dummyData = (object)[
-        'id' => 26
-      ];
       $post = new Post();
-      $post->deletePostWithEloquent($dummyData->id);
+      $post->deletePostWithEloquent($id);
+    }
+
+    public function getTrashPostWithEloquent()
+    {
+      $posts = new Post();
+      $posts = $posts->getTrashPostWithEloquent();
+      return $posts;
     }
 }

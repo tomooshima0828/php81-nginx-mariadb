@@ -21,6 +21,6 @@ class VerifyCsrfToken extends Middleware
       '/posts/delete/querybuilder',
       '/posts/create/eloquent',
       '/posts/update/eloquent',
-      '/posts/delete/eloquent',
+      '/posts/delete/eloquent/*',
     ];
 }
